@@ -1,6 +1,7 @@
 <template>
   <div>
-    <div class="md:grid md:grid-cols-5 md:gap-6">
+    <Steps class="my-5" />
+    <div class="p-5 md:grid md:grid-cols-5 md:gap-6">
       <div class="mt-5 md:mt-0 md:col-span-3">
         <form action="#" method="POST">
           <div class="shadow sm:rounded-md sm:overflow-hidden">
@@ -200,5 +201,11 @@
 </template>
 
 <script>
-export default {}
+import Steps from './Steps.vue'
+
+export default {
+  components: {
+    Steps,
+  },
+}
 </script>

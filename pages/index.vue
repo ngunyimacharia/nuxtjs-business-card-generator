@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <div class="bg-gray-100">
     <Header />
-    <DetailsForm class="p-10 bg-gray-100" />
+    <DetailsForm />
 
     <!-- // Attributes
     https://www.flaticon.com/free-icon/maps-and-flags_446075?term=map%20pin&related_id=446075#
