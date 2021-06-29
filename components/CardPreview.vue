@@ -92,11 +92,11 @@
     <!-- Back side of card  -->
     <cld-image
       public-id="business-card-generator/assets/business-card-template"
-      width="336"
-      height="192"
       crop="fill"
       alt="Front side of business card"
     >
+      <!-- Logo -->
+      <cld-transformation :overlay="`fetch:${icons.logo}`" width="300" />
     </cld-image>
   </div>
 </template>
@@ -112,6 +112,7 @@ export default {
       icons: {
         globe:
           'https://res.cloudinary.com/kmashytski/image/upload/v1624938606/business-card-generator/assets/globe-icon.png',
+        logo: 'https://res.cloudinary.com/kmashytski/image/upload/v1624939714/business-card-generator/assets/logo-icon.png',
         mail: 'https://res.cloudinary.com/kmashytski/image/upload/v1624938364/business-card-generator/assets/mail-icon.png',
         pin: 'https://res.cloudinary.com/kmashytski/image/upload/v1624937477/business-card-generator/assets/pin-icon.png',
         smartphone:

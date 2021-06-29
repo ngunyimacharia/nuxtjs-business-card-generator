@@ -37,6 +37,16 @@
       from
       <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
     </div> -->
+
+    <!-- https://www.flaticon.com/premium-icon/food-irradiation_3389070?term=logo&page=1&position=15&page=1&position=15&related_id=3389070&origin=search -->
+    <!-- <div>
+      Icons made by
+      <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons"
+        >Smashicons</a
+      >
+      from
+      <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
+    </div> -->
   </div>
 </template>
 
