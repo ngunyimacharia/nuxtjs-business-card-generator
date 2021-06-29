@@ -193,24 +193,12 @@
         </form>
       </div>
       <div class="md:col-span-2">
-            <cld-image
-              class="w-full m-1"
-              public-id="business-card-generator/business-card-template_ehhjwa.png"
-              width="336"
-              height="192"
-              crop="fill"
-              alt="Front side of business card"
-            />
-            <cld-image
-              class="w-full m-1"
-              public-id="business-card-generator/business-card-template_ehhjwa.png"
-              width="336"
-              height="192"
-              crop="fill"
-              alt="Front side of business card"
-            />
-        </div>
+        <CardPreview />
       </div>
     </div>
   </div>
 </template>
+
+<script>
+export default {}
+</script>

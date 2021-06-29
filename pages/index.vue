@@ -2,6 +2,41 @@
   <div>
     <Header />
     <DetailsForm class="p-10 bg-gray-100" />
+
+    <!-- // Attributes
+    https://www.flaticon.com/free-icon/maps-and-flags_446075?term=map%20pin&related_id=446075#
+    <div>
+      Icons made by
+      <a href="https://www.freepik.com" title="Freepik">Freepik</a> from
+      <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
+    </div> -->
+
+    <!-- https://www.flaticon.com/free-icon/smartphone_488?term=phone&page=1&position=9&page=1&position=9&related_id=488&origin=search -->
+    <!-- <div>
+      Icons made by
+      <a href="https://www.freepik.com" title="Freepik">Freepik</a> from
+      <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
+    </div> -->
+
+    <!-- https://www.flaticon.com/free-icon/mail_646094?term=mail&page=1&position=2&page=1&position=2&related_id=646094&origin=search -->
+    <!-- <div>
+      Icons made by
+      <a href="https://www.freepik.com" title="Freepik">Freepik</a> from
+      <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
+    </div> -->
+
+    <!-- https://www.flaticon.com/free-icon/globe_2301129?term=web&page=1&position=1&page=1&position=1&related_id=2301129&origin=search -->
+
+    <!-- <div>
+      Icons made by
+      <a
+        href="https://www.flaticon.com/authors/vitaly-gorbachev"
+        title="Vitaly Gorbachev"
+        >Vitaly Gorbachev</a
+      >
+      from
+      <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
+    </div> -->
   </div>
 </template>
 
