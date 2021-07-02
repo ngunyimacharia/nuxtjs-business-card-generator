@@ -1,6 +1,5 @@
 <template>
-  <div class="bg-gray-100">
-    <Header />
+  <div>
     <DetailsForm />
 
     <!-- // Attributes
