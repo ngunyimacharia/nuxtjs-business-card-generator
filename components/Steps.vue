@@ -24,72 +24,7 @@
             ]"
           >
             <nuxt-link
-              v-if="step.status === 'complete'"
-              :to="step.href"
-              class="group"
-            >
-              <span
-                class="
-                  absolute
-                  top-0
-                  left-0
-                  w-1
-                  h-full
-                  bg-transparent
-                  group-hover:bg-gray-200
-                  lg:w-full
-                  lg:h-1
-                  lg:bottom-0
-                  lg:top-auto
-                "
-                aria-hidden="true"
-              />
-              <span
-                :class="[
-                  stepIdx !== 0 ? 'lg:pl-9' : '',
-                  'px-6 py-5 flex items-start text-sm font-medium',
-                ]"
-              >
-                <span class="flex-shrink-0">
-                  <span
-                    class="
-                      w-10
-                      h-10
-                      flex
-                      items-center
-                      justify-center
-                      bg-indigo-600
-                      rounded-full
-                    "
-                  >
-                    <svg
-                      class="w-6 h-6"
-                      fill="none"
-                      stroke="white"
-                      viewBox="0 0 24 24"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M5 13l4 4L19 7"
-                      ></path>
-                    </svg>
-                  </span>
-                </span>
-                <span class="mt-0.5 ml-4 min-w-0 flex flex-col">
-                  <span class="text-xs font-semibold tracking-wide uppercase">{{
-                    step.name
-                  }}</span>
-                  <span class="text-sm font-medium text-gray-500">{{
-                    step.description
-                  }}</span>
-                </span>
-              </span>
-            </nuxt-link>
-            <nuxt-link
-              v-else-if="isActive(step.href)"
+              v-if="isActive(step.href)"
               :to="step.href"
               aria-current="step"
             >
@@ -235,28 +170,24 @@ const steps = [
     name: 'Upload logo',
     description: 'Upload your company logo.',
     href: '/',
-    status: 'complete',
   },
   {
     id: '02',
     name: 'Update Details',
     description: 'Fill in your personal and contact details.',
     href: 'details',
-    status: 'current',
   },
   {
     id: '03',
     name: 'Customize',
     description: 'Adjust the feel of the cards as you like',
     href: 'customize',
-    status: 'upcoming',
   },
   {
     id: '04',
     name: 'Download',
     description: 'Download your new business card',
     href: 'download',
-    status: 'upcoming',
   },
 ]
 
@@ -268,7 +199,7 @@ export default {
   },
   methods: {
     isActive(path) {
-      return this.$route.fullPath.search(path) > -1
+      return this.$route.path.replace('/', '') == path.replace('/', '')
     },
   },
 }
