@@ -1,5 +1,8 @@
 <template>
-  <div class="h-full flex flex-col justify-around items-center">
+  <div
+    id="card-holder"
+    class="h-full flex flex-col justify-around items-center"
+  >
     <!-- Front side of card  -->
     <cld-image
       public-id="business-card-generator/assets/business-card-template"
@@ -93,7 +96,7 @@
     <cld-image
       public-id="business-card-generator/assets/business-card-template"
       crop="fill"
-      alt="Front side of business card"
+      alt="Back side of business card"
       class="mt-10"
     >
       <!-- Logo -->
