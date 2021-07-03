@@ -66,13 +66,20 @@ export default {
       }
 
       for (let image of images) {
-        this.downloadLinks.push({
-          alt: image.alt,
-          src: image.src,
-        })
+        if (image.src) {
+          this.downloadLinks.push({
+            alt: image.alt,
+            src: image.src,
+          })
+        }
       }
 
-      console.log(this.downloadLinks)
+      if (this.downloadLinks.length < 2) {
+        setTimeout(() => {
+          this.getImageLinks()
+        }, 1000)
+        return
+      }
     },
   },
 }
