@@ -94,14 +94,20 @@
       public-id="business-card-generator/assets/business-card-template"
       crop="fill"
       alt="Front side of business card"
+      class="mt-10"
     >
       <!-- Logo -->
-      <cld-transformation :overlay="`fetch:${logo}`" width="300" />
+      <cld-transformation
+        :overlay="`fetch:${$cloudinary.image.url(logo)}`"
+        width="300"
+      />
     </cld-image>
   </div>
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
   data() {
     return {
@@ -117,23 +123,23 @@ export default {
     }
   },
   computed: {
-    logo() {
-      return this.$cloudinary.image.url(this.$store.state.logo)
+    ...mapGetters({
+      logo: 'logo',
+      details: 'details',
+      customization: 'customization',
+      address: 'address',
+      qrCodeLink: 'qrCodeLink',
+    }),
+  },
+  watch: {
+    $route: {
+      deep: true,
+      handler: function (newVal, oldVal) {
+        this.$forceUpdate()
+      },
     },
-    details() {
-      return this.$store.state.details
-    },
-    customization() {
-      return this.$store.state.customization
-    },
-    address() {
-      return this.$store.state.details.address.replace(
-        /[^ A-Za-z0-9_@.#&+-]/gi,
-        ''
-      )
-    },
-    qrCodeLink() {
-      return `https://qrtag.net/api/qr_4.png?url=https://${this.details.website}`
+    logo(newVal, oldVal) {
+      this.$forceUpdate()
     },
   },
 }

@@ -13,3 +13,27 @@ export const state = () => ({
         font: 'roboto'
     }
 });
+
+export const getters = {
+    logo: state => state.logo,
+    details: state => state.details,
+    customization: state => state.customization,
+    address: state => state.details.address.replace(
+        /[^ A-Za-z0-9_@.#&+-]/gi,
+        ''
+    ),
+    qrCodeLink: state => `https://qrtag.net/api/qr_4.png?url=https://${state.details.website}`,
+};
+
+export const mutations = {
+    changeLogo(state, public_id) {
+        state.logo = public_id;
+    }
+}
+
+export const actions = {
+    async changeLogo({ commit }, instance) {
+        commit('changeLogo', instance.public_id);
+        return instance.public_id;
+    }
+}

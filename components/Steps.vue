@@ -23,9 +23,9 @@
               'border border-gray-200 overflow-hidden lg:border-0',
             ]"
           >
-            <a
+            <nuxt-link
               v-if="step.status === 'complete'"
-              :href="step.href"
+              :to="step.href"
               class="group"
             >
               <span
@@ -87,10 +87,10 @@
                   }}</span>
                 </span>
               </span>
-            </a>
-            <a
-              v-else-if="step.status === 'current'"
-              :href="step.href"
+            </nuxt-link>
+            <nuxt-link
+              v-else-if="isActive(step.href)"
+              :to="step.href"
               aria-current="step"
             >
               <span
@@ -145,8 +145,8 @@
                   }}</span>
                 </span>
               </span>
-            </a>
-            <a v-else :href="step.href" class="group">
+            </nuxt-link>
+            <nuxt-link v-else :to="step.href" class="group">
               <span
                 class="
                   absolute
@@ -200,7 +200,7 @@
                   }}</span>
                 </span>
               </span>
-            </a>
+            </nuxt-link>
             <template v-if="stepIdx !== 0">
               <!-- Separator -->
               <div
@@ -234,21 +234,21 @@ const steps = [
     id: '01',
     name: 'Upload logo',
     description: 'Upload your company logo.',
-    href: '#',
+    href: '/',
     status: 'complete',
   },
   {
     id: '02',
     name: 'Details form',
     description: 'Fill in your personal and contact details.',
-    href: '#',
+    href: 'details',
     status: 'current',
   },
   {
     id: '03',
     name: 'Customize',
     description: 'Change the colors as you see fit.',
-    href: '#',
+    href: 'customize',
     status: 'upcoming',
   },
 ]
@@ -258,6 +258,11 @@ export default {
     return {
       steps,
     }
+  },
+  methods: {
+    isActive(path) {
+      return this.$route.fullPath.search(path) > -1
+    },
   },
 }
 </script>
