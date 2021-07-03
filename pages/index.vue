@@ -14,11 +14,13 @@
           </div>
           <hr class="my-10" />
           <input
+            v-if="!uploading"
             type="file"
             accept=".jpeg,.jpg,.png,image/jpeg,image/png"
             aria-label="upload image button"
             @change="selectFile"
           />
+          <div v-else>Please wait, upload in progress</div>
         </div>
       </div>
     </div>
@@ -29,8 +31,15 @@
 </template>
 <script>
 export default {
+  data() {
+    return {
+      uploading: false,
+    }
+  },
   methods: {
     async selectFile(e) {
+      this.uploading = true
+
       const file = e.target.files[0]
 
       /* Make sure file exists */
@@ -56,6 +65,7 @@ export default {
       this.$store
         .dispatch('changeLogo', instance)
         .then(() => this.$router.push('/details'))
+        .finally(() => (this.uploading = false))
     },
   },
 }
