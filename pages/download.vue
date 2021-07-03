@@ -20,7 +20,7 @@
             the following links to download:
           </p>
           <ul class="list-disc text-center">
-            <li v-for="link in downloadLinks" :key="link.src">
+            <li v-for="(link, index) in downloadLinks" :key="index">
               <a :href="link.src" download target="_blank">
                 {{ link.alt }}
               </a>

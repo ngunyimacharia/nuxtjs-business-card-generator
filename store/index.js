@@ -34,11 +34,7 @@ export const mutations = {
         return state.details;
     },
     updateCustomization(state, customization) {
-        state.customization = {
-            font: customization.font ? customization.font : state.customization.font,
-            accent: customization.accent ? customization.accent.replace('#', '') : state.customization.accent
-        };
-
+        state.customization.accent = customization.accent ? customization.accent.replace('#', '') : state.customization.accent;
         return state.customization;
     }
 }
