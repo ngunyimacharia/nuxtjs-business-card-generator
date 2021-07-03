@@ -1,5 +1,5 @@
 <template>
-  <form action="#" method="POST">
+  <form action="#" method="POST" @submit.prevent="submit">
     <div class="shadow sm:rounded-md sm:overflow-hidden">
       <div class="px-4 py-5 bg-white space-y-6 sm:p-6">
         <div>
@@ -11,6 +11,8 @@
               type="text"
               name="full_name"
               id="full_name"
+              v-model="details.full_name"
+              required
               class="
                 shadow-sm
                 focus:ring-indigo-500
@@ -36,6 +38,8 @@
               type="text"
               name="position"
               id="position"
+              v-model="details.position"
+              required
               class="
                 shadow-sm
                 focus:ring-indigo-500
@@ -63,6 +67,8 @@
               type="text"
               name="phone_number"
               id="phone_number"
+              v-model="details.phone_number"
+              required
               class="
                 shadow-sm
                 focus:ring-indigo-500
@@ -88,6 +94,8 @@
               type="text"
               name="email"
               id="email"
+              v-model="details.email"
+              required
               class="
                 shadow-sm
                 focus:ring-indigo-500
@@ -113,6 +121,8 @@
               type="text"
               name="website"
               id="website"
+              v-model="details.website"
+              required
               class="
                 shadow-sm
                 focus:ring-indigo-500
@@ -138,6 +148,8 @@
               type="text"
               name="address"
               id="address"
+              v-model="details.address"
+              required
               class="
                 shadow-sm
                 focus:ring-indigo-500
@@ -181,11 +193,25 @@
 </template>
 
 <script>
-import Steps from './Steps.vue'
-
 export default {
-  components: {
-    Steps,
+  data() {
+    return {
+      details: {
+        full_name: '',
+        position: '',
+        address: '',
+        phone_number: '',
+        email: '',
+        website: '',
+      },
+    }
+  },
+  methods: {
+    submit() {
+      this.$store
+        .dispatch('updateDetails', this.details)
+        .then(() => this.$router.push('/customize'))
+    },
   },
 }
 </script>

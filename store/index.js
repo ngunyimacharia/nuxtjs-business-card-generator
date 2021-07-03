@@ -28,6 +28,10 @@ export const getters = {
 export const mutations = {
     changeLogo(state, public_id) {
         state.logo = public_id;
+    },
+    updateDetails(state, details) {
+        state.details = details;
+        return state.details;
     }
 }
 
@@ -35,5 +39,8 @@ export const actions = {
     async changeLogo({ commit }, instance) {
         commit('changeLogo', instance.public_id);
         return instance.public_id;
+    },
+    updateDetails({ commit }, details) {
+        return commit('updateDetails', details);
     }
 }
