@@ -3,6 +3,15 @@
     <div class="shadow sm:rounded-md sm:overflow-hidden">
       <div class="px-4 py-5 bg-white space-y-6 sm:p-6">
         <div>
+          <h3 class="text-lg leading-6 font-medium text-gray-900">
+            Update Details
+          </h3>
+          <p class="mt-1 max-w-2xl text-sm text-gray-500">
+            Fill in your personal and contant details
+          </p>
+        </div>
+        <hr class="my-10" />
+        <div>
           <label for="full_name" class="block text-sm font-medium text-gray-700"
             >Full name:</label
           >

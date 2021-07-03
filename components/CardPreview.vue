@@ -141,6 +141,18 @@ export default {
     logo(newVal, oldVal) {
       this.$forceUpdate()
     },
+    details: {
+      deep: true,
+      handler: function (newVal, oldVal) {
+        this.$forceUpdate()
+      },
+    },
+    customization: {
+      deep: true,
+      handler: function (newVal, oldVal) {
+        this.$forceUpdate()
+      },
+    },
   },
 }
 </script>

@@ -239,7 +239,7 @@ const steps = [
   },
   {
     id: '02',
-    name: 'Details form',
+    name: 'Update Details',
     description: 'Fill in your personal and contact details.',
     href: 'details',
     status: 'current',
@@ -247,8 +247,15 @@ const steps = [
   {
     id: '03',
     name: 'Customize',
-    description: 'Change the colors as you see fit.',
+    description: 'Adjust the feel of the cards as you like',
     href: 'customize',
+    status: 'upcoming',
+  },
+  {
+    id: '04',
+    name: 'Download',
+    description: 'Download your new business card',
+    href: 'download',
     status: 'upcoming',
   },
 ]
