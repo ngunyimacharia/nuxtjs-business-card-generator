@@ -8,7 +8,7 @@
     >
       <!-- Name -->
       <cld-transformation
-        :overlay="`text:poppins_64_bold:Jane Doe,co_rgb:000000`"
+        :overlay="`text:${customization.font}_64_bold:${details.full_name},co_rgb:000000`"
         gravity="north_west"
         x="80"
         y="80"
@@ -16,7 +16,7 @@
 
       <!-- Position -->
       <cld-transformation
-        :overlay="`text:poppins_42:Director,co_rgb:000000`"
+        :overlay="`text:${customization.font}_42:${details.position},co_rgb:${customization.accent}`"
         gravity="north_west"
         x="80"
         y="160"
@@ -30,7 +30,7 @@
         width="40"
       />
       <cld-transformation
-        :overlay="`text:poppins_24_light:123 Main Street New York NY 10030,co_rgb:000000`"
+        :overlay="`text:${customization.font}_24:${address},co_rgb:${customization.accent}`"
         gravity="north_west"
         x="150"
         y="290"
@@ -44,7 +44,7 @@
         width="40"
       />
       <cld-transformation
-        :overlay="`text:poppins_24_light:012 345 678,co_rgb:000000`"
+        :overlay="`text:${customization.font}_24:${details.phone_number},co_rgb:${customization.accent}`"
         gravity="north_west"
         x="150"
         y="360"
@@ -58,7 +58,7 @@
         width="40"
       />
       <cld-transformation
-        :overlay="`text:poppins_24_light:email@example.com,co_rgb:000000`"
+        :overlay="`text:${customization.font}_24:${details.email},co_rgb:${customization.accent}`"
         gravity="north_west"
         x="150"
         y="430"
@@ -72,9 +72,9 @@
         width="40"
       />
       <cld-transformation
-        :overlay="`text:poppins_24_light:${encodeURIComponent(
-          'example.com'
-        )},co_rgb:000000`"
+        :overlay="`text:${customization.font}_24:${encodeURIComponent(
+          details.website
+        )},co_rgb:${customization.accent}`"
         gravity="north_west"
         x="150"
         y="510"
@@ -96,7 +96,7 @@
       alt="Front side of business card"
     >
       <!-- Logo -->
-      <cld-transformation :overlay="`fetch:${icons.logo}`" width="300" />
+      <cld-transformation :overlay="`fetch:${logo}`" width="300" />
     </cld-image>
   </div>
 </template>
@@ -105,10 +105,6 @@
 export default {
   data() {
     return {
-      details: {
-        location: '123 Main Street, New York, NY 10030',
-        website: 'example.com',
-      },
       icons: {
         globe:
           'https://res.cloudinary.com/kmashytski/image/upload/v1624938606/business-card-generator/assets/globe-icon.png',
@@ -121,6 +117,21 @@ export default {
     }
   },
   computed: {
+    logo() {
+      return this.$cloudinary.image.url(this.$store.state.logo)
+    },
+    details() {
+      return this.$store.state.details
+    },
+    customization() {
+      return this.$store.state.customization
+    },
+    address() {
+      return this.$store.state.details.address.replace(
+        /[^ A-Za-z0-9_@.#&+-]/gi,
+        ''
+      )
+    },
     qrCodeLink() {
       return `https://qrtag.net/api/qr_4.png?url=https://${this.details.website}`
     },
